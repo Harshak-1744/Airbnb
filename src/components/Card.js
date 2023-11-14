@@ -1,8 +1,8 @@
 import React from "react"
-import star from "../images/star.png"
-import katieImage from "../images/katie-zaferes.png"
-import weddingImage from "../images/wedding-photography.png"
-import mountainBikeImage from "../images/mountain-bike.png"
+import star from "./images/star.png"
+import katieImage from "./images/katie-zaferes.png"
+import weddingImage from "./images/wedding-photography.png"
+import mountainBikeImage from "./images/mountain-bike.png"
 
 
 const imageMap = {
