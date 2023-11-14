@@ -1,33 +1,30 @@
-import React from "react"
-import star from "./images/star.png"
-import katieImage from "./images/katie-zaferes.png"
-import weddingImage from "./images/wedding-photography.png"
-import mountainBikeImage from "./images/mountain-bike.png"
+import React from "react";
 
+function Card(props) {
+    let badgeText;
+    if (props.item.openSpots === 0) {
+        badgeText = "SOLD OUT";
+    } else if (props.item.location === "Online") {
+        badgeText = "ONLINE";
+    }
 
-const imageMap = {
-    "katie-zaferes.png": katieImage,
-    "wedding-photography.png": weddingImage,
-    "mountain-bike.png": mountainBikeImage,
-};
-
-function Card(props){
-    const image = imageMap[props.img];
+    
+    const imagePath = `/images/` + props.item.coverImg; 
 
     return (
         <div className="card">
-            {}
-            <img src={image} className="card--image" alt="Card cap" /> 
+            {badgeText && <div className="card--badge">{badgeText}</div>}
+            <img src={imagePath} className="card--image" alt={props.item.title} />
             <div className="card--stats">
-                <img src={star} className="card--star" alt="Rating star" />
-                <span>{props.rating}</span>
-                <span className="gray">({props.reviewCount}) • </span>
-                <span className="gray">{props.location}</span>
+                <img src="/images/star.png" className="card--star" alt="Rating star" />
+                <span>{props.item.stats.rating}</span>
+                <span className="gray">({props.item.stats.reviewCount}) • </span>
+                <span className="gray">{props.item.location}</span>
             </div>
-            <p>{props.title}</p>
-            <p><span className="bold">From ${props.price}</span> / person</p>
+            <p>{props.item.title}</p>
+            <p><span className="bold">From ${props.item.price}</span> / person</p>
         </div>
-    )
+    );
 }
 
-export default Card
+export default Card;
